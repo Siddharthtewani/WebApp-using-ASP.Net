@@ -36,6 +36,8 @@ namespace FrndshipApp.API
                 app.UseDeveloperExceptionPage();
             }
 
+
+
             // app.UseHttpsRedirection();
 
             app.UseRouting();
