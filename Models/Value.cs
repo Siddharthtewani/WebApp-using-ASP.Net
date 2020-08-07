@@ -2,6 +2,7 @@ namespace FrndshipApp.API.Models
 {
     public class Value
     {
-        public int MyProperty { get; set; }
+        public int id { get; set; }
+        public string Name { get; set; }
     }
 }
