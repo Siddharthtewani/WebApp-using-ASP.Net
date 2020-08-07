@@ -28,13 +28,15 @@ namespace FrndshipApp.API
         {   
             services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
-            {
+            {   
+                
                 app.UseDeveloperExceptionPage();
             }
 
@@ -45,7 +47,7 @@ namespace FrndshipApp.API
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.UseCors(x =>x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
